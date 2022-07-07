@@ -27,4 +27,12 @@ public class PointTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("입력 형식이 잘못되었습니다.");
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"(0,-1)","(0,-1)","(25,24)","(24,25)"})
+    void Point_입력받기_0에서24(String input) {
+        Assertions.assertThatThrownBy(() -> new Point(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("입력 형식이 잘못되었습니다.");
+    }
 }
