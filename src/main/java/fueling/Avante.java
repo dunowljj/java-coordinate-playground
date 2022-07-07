@@ -1,25 +1,11 @@
 package fueling;
 
-public class Avante extends Car{
-    private final double distancePerLister = 15;
-    private final String name = "Avante";
-    private double tripDistance;
+public class Avante extends AbstractCar {
+    private static final double DISTANCE_PER_LISTER = 15;
+    private static final String NAME_OF_CAR = "Avante";
 
-    public Avante(int tripDistance) {
-        this.tripDistance = tripDistance;
-    };
-    @Override
-    double getDistancePerLiter() {
-        return distancePerLister;
+    public Avante(int distance) {
+        super(distance, DISTANCE_PER_LISTER, NAME_OF_CAR);
     }
 
-    @Override
-    double getTripDistance() {
-        return tripDistance;
-    }
-
-    @Override
-    String getName() {
-        return name;
-    }
 }
