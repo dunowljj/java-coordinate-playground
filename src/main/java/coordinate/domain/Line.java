@@ -18,4 +18,8 @@ public class Line {
     public Point getPoint2() {
         return point2;
     }
+
+    public double length() {
+        return point1.calcDistance(point2);
+    }
 }

@@ -14,7 +14,6 @@ public class Point {
     private double y;
 
     public Point(String input) {
-
         Pattern pattern = Pattern.compile(POINT_INPUT_REGEX_GROUP);
         Matcher matcher = pattern.matcher(input);
         if (matcher.find()) {
@@ -41,5 +40,11 @@ public class Point {
     }
     public int getY() {
         return (int) y;
+    }
+
+    public double calcDistance(Point point2) {
+        return Math.sqrt(
+                Math.pow(this.x - point2.getX(), 2) + Math.pow(this.y - point2.getY(), 2)
+        );
     }
 }
