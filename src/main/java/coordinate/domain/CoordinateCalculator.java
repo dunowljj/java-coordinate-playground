@@ -5,7 +5,17 @@ import coordinate.view.ResultView;
 
 
 public class CoordinateCalculator {
-    public void calculate() {
+    public int calculate() {
+        try {
+            tryToCalculate();
+        }catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return calculate();
+        }
+        return 1;
+    }
+
+    public void tryToCalculate() {
         String input = InputView.inputCoordinate();
         Line line = new Line(input);
         Graph graph = new Graph();

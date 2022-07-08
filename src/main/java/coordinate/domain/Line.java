@@ -6,7 +6,7 @@ import java.util.List;
 public class Line {
     private Point point1;
 
-    private Point point2;{}
+    private Point point2;{}능
     public Line(String input) {
         String[] coordinate = input.split("-");
 
