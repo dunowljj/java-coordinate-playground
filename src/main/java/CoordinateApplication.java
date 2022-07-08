@@ -1,9 +1,8 @@
-import coordinate.view.InputView;
+import coordinate.domain.CoordinateCalculator;
 
 public class CoordinateApplication {
     public static void main(String[] args) {
-
-        InputView.inputCoordinate();
-
+        CoordinateCalculator calculator = new CoordinateCalculator();
+        calculator.calculate();
     }
 }
