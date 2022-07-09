@@ -1,8 +1,5 @@
 package coordinate.domain;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Line {
     private Point point1;
 
@@ -25,11 +22,5 @@ public class Line {
     public double length() {
         return point1.calcDistance(point2);
     }
-    public List<Point> getPointList() {
-        List<Point> points = new ArrayList<>();
-        points.add(point1);
-        points.add(point2);
 
-        return points;
-    }
 }
