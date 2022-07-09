@@ -1,5 +1,6 @@
 package coordinate.domain;
 
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -11,6 +12,7 @@ public class Point {
     public static final int END_RANGE = 24;
     public static final String ERROR_INVALID_NUMBER_OF_RANGE = "0-24 범위의 좌표만 입력가능합니다.";
     private double x;
+
     private double y;
 
     public Point(String input) {
@@ -35,6 +37,12 @@ public class Point {
                 (START_RANGE <= y && y <= END_RANGE);
     }
 
+
+    public double calcDistance(Point point2) {
+        return Math.sqrt(
+                Math.pow(this.x - point2.getX(), 2) + Math.pow(this.y - point2.getY(), 2)
+        );
+    }
     public int getX() {
         return (int) x;
     }
@@ -42,9 +50,17 @@ public class Point {
         return (int) y;
     }
 
-    public double calcDistance(Point point2) {
-        return Math.sqrt(
-                Math.pow(this.x - point2.getX(), 2) + Math.pow(this.y - point2.getY(), 2)
-        );
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Point point = (Point) o;
+        return Double.compare(point.x, x) == 0 && Double.compare(point.y, y) == 0;
     }
 }

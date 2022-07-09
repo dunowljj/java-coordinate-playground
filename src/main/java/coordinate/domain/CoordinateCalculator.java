@@ -3,6 +3,8 @@ package coordinate.domain;
 import coordinate.view.InputView;
 import coordinate.view.ResultView;
 
+import java.util.List;
+
 
 public class CoordinateCalculator {
     public int calculate() {
@@ -17,12 +19,16 @@ public class CoordinateCalculator {
 
     public void tryToCalculate() {
         String input = InputView.inputCoordinate();
-        Line line = new Line(input);
+        Points points = new Points(input);
+        List<Point> pointList = points.getPointList();
+
         Graph graph = new Graph();
+        String drawing = graph.create(pointList);
+        ResultView.printResult(drawing);
 
-        String drawing = graph.create(line.getPointList());
-        double result = line.length();
-
-        ResultView.printResult(drawing, result);
+        if (pointList.size() == 2) {
+            Line line = new Line(input);
+            ResultView.printDistance(line.length());
+        }
     }
 }

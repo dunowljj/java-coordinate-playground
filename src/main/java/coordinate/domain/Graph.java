@@ -8,7 +8,7 @@ public class Graph {
     public final String SPACE_1 = " ";
     private final String SPACE_2 = "  ";
     private final String SPACE_4 = "    ";
-    private final String COORDINATE_DOT = "*";
+    private final String COORDINATE_DOT = "·";
     private final String START_DOT = "*";
     private final String VARTICAL_BAR = "│";
     private final String HORIZONTAL_BAR = "ᅳᅳᅳᅳ";
