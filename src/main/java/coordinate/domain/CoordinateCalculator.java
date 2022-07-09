@@ -27,7 +27,7 @@ public class CoordinateCalculator {
         ResultView.printResult(drawing);
 
         if (pointList.size() == 2) {
-            Line line = new Line(input);
+            Line line = new Line(pointList);
             ResultView.printDistance(line.length());
         }
     }

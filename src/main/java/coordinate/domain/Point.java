@@ -8,11 +8,10 @@ public class Point {
     private static final String POINT_INPUT_REGEX_GROUP = "\\((\\d*),(\\d*)\\)";
     private static final String POINT_INPUT_REGEX = "\\(\\d*,\\d*\\)";
     private static final String ERROR_INVALID_INPUT_FORMAT = "입력 형식이 잘못되었습니다.";
+    public static final String ERROR_INVALID_NUMBER_OF_RANGE = "0-24 범위의 좌표만 입력가능합니다.";
     public static final int START_RANGE = 0;
     public static final int END_RANGE = 24;
-    public static final String ERROR_INVALID_NUMBER_OF_RANGE = "0-24 범위의 좌표만 입력가능합니다.";
     private double x;
-
     private double y;
 
     public Point(String input) {
@@ -55,7 +54,6 @@ public class Point {
     public int hashCode() {
         return Objects.hash(x, y);
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

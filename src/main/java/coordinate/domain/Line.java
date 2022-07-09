@@ -1,14 +1,15 @@
 package coordinate.domain;
 
+import java.util.List;
+
 public class Line {
     private Point point1;
 
     private Point point2;
-    public Line(String input) {
-        String[] coordinate = input.split("-");
+    public Line(List<Point> pointList) {
 
-        this.point1 = new Point(coordinate[0]);
-        this.point2 = new Point(coordinate[1]);
+        this.point1 = pointList.get(0);
+        this.point2 = pointList.get(1);
     }
 
     public Point getPoint1() {

@@ -1,17 +1,23 @@
 package coordinate.domain;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.*;
 
 public class LineTest {
+    Points points;
+
+    @BeforeEach
+    void setUp() {
+        String input = "(1,2)-(3,4)";
+        points = new Points(input);
+    }
+
     @Test
     void 입력받기_좌표두개() {
-        //given
-        String input = "(1,2)-(3,4)";
-
         //when
-        Line line = new Line(input);
+        Line line = new Line(points.getPointList());
         Point dot1 = line.getPoint1();
         Point dot2 = line.getPoint2();
 
@@ -25,7 +31,7 @@ public class LineTest {
     @Test
     void 직선_거리_계산() {
         //given
-        Line line = new Line("(1,2)-(3,4)");
+        Line line = new Line(points.getPointList());
 
         //then
         assertThat(line.length()).isEqualTo(2.8284, offset(0.00099));
