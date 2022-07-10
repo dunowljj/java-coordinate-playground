@@ -1,6 +1,7 @@
 package coordinate.domain;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Line {
     private Point point1;
@@ -29,4 +30,17 @@ public class Line {
         return point1.calcDistance(point2);
     }
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Line line = (Line) o;
+        return Objects.equals(point1, line.point1) && Objects.equals(point2, line.point2)
+                || Objects.equals(point2, line.point1) && Objects.equals(point1, line.point2);
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(point1, point2);
+    }
 }

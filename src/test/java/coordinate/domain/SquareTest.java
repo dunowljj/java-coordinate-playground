@@ -8,8 +8,8 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.*;
 
 public class SquareTest {
-   /* @Test
-    void Square_사각형_좌표저장() {
+    @Test
+    void 사각형_Line저장() {
         //given
         String input = "(1,3)-(2,3)-(2,5)-(1,5)";
         Points points = new Points(input);
@@ -17,14 +17,17 @@ public class SquareTest {
 
         //when
         Square square = new Square(pointList);
+        Line line1 = square.getBase();
+        Line line2 = square.getHeight();
+
 
         //then
-        assertThat(square.getPointList()).contains(pointList.get(0), pointList.get(1)
-                , pointList.get(2), pointList.get(3));
-    }*/
+        assertThat(pointList).contains(line1.getPoint1(),line1.getPoint2()
+                ,line2.getPoint1(),line2.getPoint2());
+    }
 
     @Test
-    void Square_직사각형_아니면_예외() {
+    void 직사각형_아니면_예외() {
         //given
         String input = "(1,3)-(2,4)-(6,5)-(1,5)";
         Points points = new Points(input);
@@ -37,7 +40,7 @@ public class SquareTest {
     }
 
     @Test
-    void Square_직사각형_넓이() {
+    void 직사각형_넓이() {
         //given
         String input = "(1,3)-(2,3)-(2,5)-(1,5)";
         Points points = new Points(input);

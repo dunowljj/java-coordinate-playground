@@ -16,6 +16,7 @@ public class Square {
         this.height = new Line(pointList.get(0), pointList.get(1));
         this.base = new Line(pointList.get(0), pointList.get(2));
     }
+
     private boolean isRectangle(List<Point> pointList) {
         Set<Integer> setX = new HashSet<>();
         Set<Integer> setY = new HashSet<>();
@@ -37,8 +38,15 @@ public class Square {
             }
         });
     }
-
     public int width() {
         return (int)height.length() * (int)base.length();
+    }
+
+    public Line getHeight() {
+        return height;
+    }
+
+    public Line getBase() {
+        return base;
     }
 }

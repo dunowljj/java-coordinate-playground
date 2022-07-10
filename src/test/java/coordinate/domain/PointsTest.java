@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.*;
 public class PointsTest {
 
     @Test
-    void Points_여러개_좌표_입력받기() {
+    void 여러개_좌표_입력받기() {
         //given
         String input = "(1,3)-(1,5)";
 
@@ -22,7 +22,7 @@ public class PointsTest {
     }
 
     @Test
-    void Points_동일_좌표_예외() {
+    void 동일_좌표_예외() {
         assertThatThrownBy(() -> new Points("(1,5)-(1,5)"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("중복된 좌표는 입력할 수 없습니다.");
