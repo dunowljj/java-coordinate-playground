@@ -15,7 +15,7 @@ public class ResultView {
         System.out.print(LINE_DISTNACE_SCRIPT + Math.round(distance * DECIMAL_PLACE) / DECIMAL_PLACE);
     }
 
-    public static void printWidth(int width) {
+    public static void printWidth(double width) {
         System.out.print(SQUARE_WIDTH_SCRIPT + width);
     }
 }

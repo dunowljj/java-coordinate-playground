@@ -30,9 +30,14 @@ public class CoordinateCalculator {
             Line line = new Line(pointList);
             ResultView.printDistance(line.length());
         }
+        if (pointList.size() == 3) {
+            Triangle triangle = new Triangle(pointList);
+            ResultView.printWidth(triangle.width());
+        }
         if (pointList.size() == 4) {
             Square square = new Square(pointList);
             ResultView.printWidth(square.width());
         }
+
     }
 }
