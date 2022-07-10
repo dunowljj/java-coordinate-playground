@@ -16,6 +16,6 @@ public class ResultView {
     }
 
     public static void printWidth(double width) {
-        System.out.print(SQUARE_WIDTH_SCRIPT + width);
+        System.out.print(SQUARE_WIDTH_SCRIPT + Math.round(width * DECIMAL_PLACE) / DECIMAL_PLACE);
     }
 }
