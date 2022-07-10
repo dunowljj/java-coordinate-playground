@@ -2,7 +2,7 @@ package coordinate.domain;
 
 import java.util.List;
 
-public class Triangle {
+public class Triangle implements Figure{
     private final Line line1;
 
     private final Line line2;
@@ -18,6 +18,7 @@ public class Triangle {
 
     }
 
+    @Override
     public double width() {
         double a = this.line1.length();
         double b = this.line2.length();
