@@ -18,6 +18,14 @@ public class PointsTest {
         Points points = new Points(input);
 
         // then
-        assertThat(points.getPointList()).containsExactly(point1, point2);
+        assertThat(points.getPointList()).contains(point1, point2);
     }
+
+    @Test
+    void Points_동일_좌표_예외() {
+        assertThatThrownBy(() -> new Points("(1,5)-(1,5)"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("중복된 좌표는 입력할 수 없습니다.");
+    }
+
 }

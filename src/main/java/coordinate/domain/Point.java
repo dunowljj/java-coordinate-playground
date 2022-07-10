@@ -49,7 +49,6 @@ public class Point {
         return (int) y;
     }
 
-
     @Override
     public int hashCode() {
         return Objects.hash(x, y);
