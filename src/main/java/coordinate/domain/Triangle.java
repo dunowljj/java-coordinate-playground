@@ -16,6 +16,14 @@ public class Triangle implements Figure{
         this.line1 = new Line(point1, point2);
         this.line2 = new Line(point2, point3);
         this.line3 = new Line(point3, point1);
+
+        if (pointsInStraight()) {
+            throw new IllegalArgumentException("삼각형이 아닙니다.");
+        }
+    }
+
+    private boolean pointsInStraight() {
+        return line1.slope() == line2.slope() && line2.slope() == line3.slope() ;
     }
 
 

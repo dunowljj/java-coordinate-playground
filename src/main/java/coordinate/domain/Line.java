@@ -43,4 +43,8 @@ public class Line {
     public int hashCode() {
         return Objects.hash(point1, point2);
     }
+
+    public double slope() {
+        return (double) (point1.getX() - point2.getX()) / (double) (point1.getY() - point2.getY());
+    }
 }

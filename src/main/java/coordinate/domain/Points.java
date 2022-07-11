@@ -40,11 +40,9 @@ public class Points {
         return pointList;
     }
 
-
     public boolean hasTwoPoints() {
         return pointList.size() == NUMBER_OF_LINE_VERTEX;
     }
-
 
     public int size() {
         return pointList.size();

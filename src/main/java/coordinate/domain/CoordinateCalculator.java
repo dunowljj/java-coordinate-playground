@@ -33,7 +33,4 @@ public class CoordinateCalculator {
             ResultView.printWidth(figure.width());
         }
     }
-    private boolean hasTwoPoints(Points points) {
-        return points.hasTwoPoints();
-    }
 }

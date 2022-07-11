@@ -2,6 +2,8 @@ package coordinate.domain;
 
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 
 import java.util.ArrayList;
@@ -40,6 +42,19 @@ public class TriangleTest {
 
         //then
         assertThat(triangle.width()).isEqualTo(4.5, offset(0.00099));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"(1,1)-(2,2)-(3,3)","(1,3)-(3,9)-(6,18)", "(4,2)-(8,4)-(24,12)"})
+    void 삼각형아닌_직선일때_예외(String input) {
+        //given
+        Points points = new Points(input);
+
+        //when, then
+        assertThatThrownBy(() -> new Triangle(points))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("삼각형이 아닙니다.");
 
     }
+
 }
