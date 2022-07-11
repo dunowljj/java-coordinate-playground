@@ -27,28 +27,13 @@ public class CoordinateCalculator {
             ResultView.printDistance(new Line(points).length());
         }
 
-        Figure figure = create(points);
+        FigureFactory factory = new FigureFactoryImpl();
+        Figure figure = factory.create(points);
         if (figure != null) {
             ResultView.printWidth(figure.width());
         }
     }
     private boolean hasTwoPoints(Points points) {
         return points.isLine();
-    }
-
-    private static Figure create(Points points) {
-        if (hasFourPoints(points)) {
-            return new Square(points);
-        }
-        if (hasThreePoints(points)) {
-            return new Triangle(points);
-        }
-        return null;
-    }
-    private static boolean hasThreePoints(Points points) {
-        return points.hasThreePoints();
-    }
-    private static boolean hasFourPoints(Points points) {
-        return points.hasFourPoints();
     }
 }

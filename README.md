@@ -71,4 +71,4 @@
 - [예외] 삼각형이 아닌 경우 예외처리 (모두 일직선)
 - 공백 정리 o
 - Line, Square, Triangle 모두 Points객체를 주고받도록 변경 o
-- FigureFactory생성
+- FigureFactory생성 o
