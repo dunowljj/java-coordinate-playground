@@ -23,7 +23,7 @@ public class CoordinateCalculator {
         String drawing = graph.create(points);
         ResultView.printGraph(drawing);
 
-        if (hasTwoPoints(points)) {
+        if (points.hasTwoPoints()) {
             ResultView.printDistance(new Line(points).length());
         }
 
@@ -34,6 +34,6 @@ public class CoordinateCalculator {
         }
     }
     private boolean hasTwoPoints(Points points) {
-        return points.isLine();
+        return points.hasTwoPoints();
     }
 }
