@@ -3,19 +3,22 @@ package coordinate.domain;
 import java.util.List;
 
 public class Graph {
-    private final StringBuilder sb = new StringBuilder();
-    private final String NEWLINE = System.getProperty("line.separator");
-    public final String SPACE_1 = " ";
-    private final String SPACE_2 = "  ";
-    private final String SPACE_4 = "    ";
-    private final String COORDINATE_DOT = "·";
-    private final String START_DOT = "*";
-    private final String VARTICAL_BAR = "│";
-    private final String HORIZONTAL_BAR = "ᅳᅳᅳᅳ";
+    public static final int MAX_COORDINATE = 24;
+    public static final int MIN_COORDINATE = 0;
+    public static final int NUMBER_INTERVAL = 2;
+    private final static String NEWLINE = System.getProperty("line.separator");
+    public final static String SPACE_1 = " ";
+    private final static String SPACE_2 = "  ";
+    private final static String SPACE_4 = "    ";
+    private final static String COORDINATE_DOT = "·";
+    private final static String START_DOT = "*";
+    private final static String VARTICAL_BAR = "│";
+    private final static String HORIZONTAL_BAR = "ᅳᅳᅳᅳ";
+    private final static StringBuilder sb = new StringBuilder();
 
     public String create(List<Point> points) {
 
-        for (int y = 24; y >= 0; y-=1) {
+        for (int y = MAX_COORDINATE; y >= MIN_COORDINATE; y-=1) {
             drawY_axis(y);
             drawSpaceAndCoordinate(points, y);
         }
@@ -49,7 +52,7 @@ public class Graph {
 
     private void drawSpaceAndCoordinate(List<Point> points, int y) {
         sb.append(SPACE_1);
-        for (int x = 0; x < 24; x++) {
+        for (int x = MIN_COORDINATE; x < MAX_COORDINATE; x++) {
             markCoordinate(points, x, y);
             sb.append(SPACE_2);
         }
@@ -60,12 +63,14 @@ public class Graph {
             mark(x, y, point);
         }
     }
-
     private void mark(int x, int y, Point point) {
-        if (point.getX() == x && point.getY() == y ) {
+        if (currIndexMatchWithPoint(x, y, point)) {
             sb.delete(sb.length() - 1, sb.length());
             sb.append(COORDINATE_DOT);
         }
+    }
+    private boolean currIndexMatchWithPoint(int x, int y, Point point) {
+        return point.getX() == x && point.getY() == y;
     }
 
     private void drawX_axis () {
@@ -75,14 +80,14 @@ public class Graph {
     private void drawHorizon() {
         sb.append(SPACE_2).append(START_DOT);
 
-        for (int x = 0; x <= 24; x += 2) {
+        for (int x = MIN_COORDINATE; x <= MAX_COORDINATE; x += NUMBER_INTERVAL) {
             sb.append(HORIZONTAL_BAR);
         }
         sb.delete(sb.length() - 4, sb.length());
     }
     private void drawEvenNum() {
         sb.append(NEWLINE).append(SPACE_2);
-        for (int x = 0; x <= 24; x += 2) {
+        for (int x = MIN_COORDINATE; x <= MAX_COORDINATE; x += NUMBER_INTERVAL) {
             sb.append(x).append(SPACE_4);
         }
     }

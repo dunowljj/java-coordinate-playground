@@ -26,6 +26,7 @@ public class Points {
         return coordinate.length != pointList.size();
     }
 
+
     public List<Point> getPointList() {
         return pointList;
     }

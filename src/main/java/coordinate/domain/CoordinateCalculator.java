@@ -21,8 +21,7 @@ public class CoordinateCalculator {
         }
         return 1;
     }
-
-    public void tryToCalculate() {
+    private void tryToCalculate() {
         String input = InputView.inputCoordinate();
         Points points = new Points(input);
         List<Point> pointList = points.getPointList();
@@ -32,13 +31,11 @@ public class CoordinateCalculator {
         ResultView.printResult(drawing);
 
         if (hasTwoPoints(pointList)) {
-            Line line = new Line(pointList);
-            ResultView.printDistance(line.length());
+            ResultView.printDistance(new Line(pointList).length());
         }
 
         Figure figure = create(pointList);
         ResultView.printWidth(figure.width());
-
     }
     private boolean hasTwoPoints(List<Point> pointList) {
         return pointList.size() == NUMBER_OF_POINT_IN_LINE;
@@ -59,4 +56,4 @@ public class CoordinateCalculator {
     private static boolean hasFourPoints(List<Point> pointList) {
         return pointList.size() == NUMBER_OF_SQUARE_VERTEX;
     }
-}
+    }

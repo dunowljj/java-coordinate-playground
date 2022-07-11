@@ -4,10 +4,9 @@ import java.util.List;
 
 public class Triangle implements Figure{
     private final Line line1;
-
     private final Line line2;
-
     private final Line line3;
+
     public Triangle(List<Point> pointList) {
         Point point1 = pointList.get(0);
         Point point2 = pointList.get(1);
@@ -15,8 +14,8 @@ public class Triangle implements Figure{
         this.line1 = new Line(point1, point2);
         this.line2 = new Line(point2, point3);
         this.line3 = new Line(point3, point1);
-
     }
+
 
     @Override
     public double width() {
@@ -29,14 +28,13 @@ public class Triangle implements Figure{
         ) ;
     }
 
+
     public Line getLine1() {
         return line1;
     }
-
     public Line getLine2() {
         return line2;
     }
-
     public Line getLine3() {
         return line3;
     }

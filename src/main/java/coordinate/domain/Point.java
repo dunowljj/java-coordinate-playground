@@ -42,6 +42,8 @@ public class Point {
                 Math.pow(this.x - point2.getX(), 2) + Math.pow(this.y - point2.getY(), 2)
         );
     }
+
+
     public int getX() {
         return (int) x;
     }

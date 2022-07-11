@@ -5,10 +5,9 @@ import java.util.Objects;
 
 public class Line {
     private Point point1;
-
     private Point point2;
-    public Line(List<Point> pointList) {
 
+    public Line(List<Point> pointList) {
         this.point1 = pointList.get(0);
         this.point2 = pointList.get(1);
     }
@@ -18,18 +17,17 @@ public class Line {
         this.point2 = point2;
     }
 
-    public Point getPoint1() {
-        return point1;
-    }
-
-    public Point getPoint2() {
-        return point2;
-    }
-
     public double length() {
         return point1.calcDistance(point2);
     }
 
+
+    public Point getPoint1() {
+        return point1;
+    }
+    public Point getPoint2() {
+        return point2;
+    }
 
     @Override
     public boolean equals(Object o) {

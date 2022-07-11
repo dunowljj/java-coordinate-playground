@@ -2,7 +2,7 @@ package coordinate.domain;
 
 import java.util.*;
 
-public class Square implements Figure{
+public class Square implements Figure {
     public static final String ERROR_NOT_RECTANGLE = "직사각형이 아닙니다.";
     private Line height;
     private Line base;
@@ -16,7 +16,6 @@ public class Square implements Figure{
         this.height = new Line(pointList.get(0), pointList.get(1));
         this.base = new Line(pointList.get(0), pointList.get(2));
     }
-
     private boolean isRectangle(List<Point> pointList) {
         Set<Integer> setX = new HashSet<>();
         Set<Integer> setY = new HashSet<>();
@@ -38,15 +37,17 @@ public class Square implements Figure{
             }
         });
     }
+
+
     @Override
     public double width() {
         return height.length() * base.length();
     }
 
+
     public Line getHeight() {
         return height;
     }
-
     public Line getBase() {
         return base;
     }
