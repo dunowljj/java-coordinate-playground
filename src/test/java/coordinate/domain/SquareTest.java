@@ -13,16 +13,14 @@ public class SquareTest {
         //given
         String input = "(1,3)-(2,3)-(2,5)-(1,5)";
         Points points = new Points(input);
-        List<Point> pointList = points.getPointList();
 
         //when
-        Square square = new Square(pointList);
+        Square square = new Square(points);
         Line line1 = square.getBase();
         Line line2 = square.getHeight();
 
-
         //then
-        assertThat(pointList).contains(line1.getPoint1(),line1.getPoint2()
+        assertThat(points.getPointList()).contains(line1.getPoint1(),line1.getPoint2()
                 ,line2.getPoint1(),line2.getPoint2());
     }
 
@@ -31,10 +29,9 @@ public class SquareTest {
         //given
         String input = "(1,3)-(2,4)-(6,5)-(1,5)";
         Points points = new Points(input);
-        List<Point> pointList = points.getPointList();
 
         //when, then
-        assertThatThrownBy(() -> new Square(pointList))
+        assertThatThrownBy(() -> new Square(points))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("직사각형이 아닙니다.");
     }
@@ -44,7 +41,7 @@ public class SquareTest {
         //given
         String input = "(1,3)-(2,3)-(2,5)-(1,5)";
         Points points = new Points(input);
-        Square square = new Square(points.getPointList());
+        Square square = new Square(points);
 
         //when
         assertThat(square.width()).isEqualTo(2);

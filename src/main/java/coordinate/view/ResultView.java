@@ -7,7 +7,7 @@ public class ResultView {
     public static final double DECIMAL_PLACE = 1_000_000;
     public static final String SQUARE_WIDTH_SCRIPT = "사각형 넓이는 ";
 
-    public static void printResult(String graph) {
+    public static void printGraph(String graph) {
         System.out.println(graph);
     }
 

@@ -7,7 +7,9 @@ public class Triangle implements Figure{
     private final Line line2;
     private final Line line3;
 
-    public Triangle(List<Point> pointList) {
+    public Triangle(Points points) {
+        List<Point> pointList = points.getPointList();
+
         Point point1 = pointList.get(0);
         Point point2 = pointList.get(1);
         Point point3 = pointList.get(2);

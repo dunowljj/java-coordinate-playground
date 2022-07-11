@@ -16,11 +16,12 @@ public class Graph {
     private final static String HORIZONTAL_BAR = "ᅳᅳᅳᅳ";
     private final static StringBuilder sb = new StringBuilder();
 
-    public String create(List<Point> points) {
+    public String create(Points points) {
+        List<Point> pointList = points.getPointList();
 
         for (int y = MAX_COORDINATE; y >= MIN_COORDINATE; y-=1) {
             drawY_axis(y);
-            drawSpaceAndCoordinate(points, y);
+            drawSpaceAndCoordinate(pointList, y);
         }
         drawX_axis();
         return sb.toString().trim();

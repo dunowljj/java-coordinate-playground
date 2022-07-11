@@ -16,13 +16,14 @@ public class TriangleTest {
         //given
         String input = "(1,3)-(5,10)-(12,19)";
         Points points = new Points(input);
+
         List<Line> lineList = new ArrayList<>();
         lineList.add(new Line(new Point(("(1,3)")), new Point("(5,10)")));
         lineList.add(new Line(new Point(("(5,10)")), new Point("(12,19)")));
         lineList.add(new Line(new Point(("(12,19)")), new Point("(1,3)")));
 
         //when
-        Triangle triangle = new Triangle(points.getPointList());
+        Triangle triangle = new Triangle(points);
 
         //then
         assertThat(lineList).contains(triangle.getLine1(), triangle.getLine2(), triangle.getLine3());
@@ -35,7 +36,7 @@ public class TriangleTest {
         Points points = new Points(input);
 
         //when
-        Triangle triangle = new Triangle(points.getPointList());
+        Triangle triangle = new Triangle(points);
 
         //then
         assertThat(triangle.width()).isEqualTo(4.5, offset(0.00099));

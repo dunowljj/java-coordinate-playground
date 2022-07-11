@@ -7,7 +7,9 @@ public class Square implements Figure {
     private Line height;
     private Line base;
 
-    public Square(List<Point> pointList) {
+    public Square(Points points) {
+        List<Point> pointList = points.getPointList();
+
         if (!isRectangle(pointList)) {
             throw new IllegalArgumentException(ERROR_NOT_RECTANGLE);
         }

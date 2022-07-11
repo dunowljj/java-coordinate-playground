@@ -7,7 +7,9 @@ public class Line {
     private Point point1;
     private Point point2;
 
-    public Line(List<Point> pointList) {
+    public Line(Points points) {
+        List<Point> pointList = points.getPointList();
+
         this.point1 = pointList.get(0);
         this.point2 = pointList.get(1);
     }

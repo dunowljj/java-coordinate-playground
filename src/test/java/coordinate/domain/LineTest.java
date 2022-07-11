@@ -17,7 +17,7 @@ public class LineTest {
     @Test
     void 입력받기_좌표두개() {
         //when
-        Line line = new Line(points.getPointList());
+        Line line = new Line(points);
         Point dot1 = line.getPoint1();
         Point dot2 = line.getPoint2();
 
@@ -31,7 +31,7 @@ public class LineTest {
     @Test
     void 직선_거리_계산() {
         //given
-        Line line = new Line(points.getPointList());
+        Line line = new Line(points);
 
         //then
         assertThat(line.length()).isEqualTo(2.8284, offset(0.00099));
