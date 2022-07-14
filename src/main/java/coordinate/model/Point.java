@@ -6,8 +6,8 @@ import java.util.regex.Pattern;
 
 public class Point {
     public static final String ERROR_INPUT_RANGE = "입력범위를 초과하였습니다.(0-24)";
-    private int x;
-    private int y;
+    private double x;
+    private double y;
 
     public Point(String input) {
         Pattern pattern = Pattern.compile("\\(([0-9]{1,2}),([0-9]{1,2})\\)");
@@ -31,6 +31,16 @@ public class Point {
         return 0 <= x && x <= 24;
     }
 
+    public double calculateLength(Point point) {
+        return Math.sqrt(Math.pow(differenceX(point), 2) + Math.pow(differenceY(point), 2));
+    }
+    private double differenceY(Point point) {
+        return y - point.getY();
+    }
+    private double differenceX(Point point) {
+        return x - point.getX();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -44,11 +54,11 @@ public class Point {
         return Objects.hash(x, y);
     }
 
-    public int getX() {
+    public double getX() {
         return x;
     }
 
-    public int getY() {
+    public double getY() {
         return y;
     }
 }

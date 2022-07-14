@@ -1,7 +1,9 @@
 package coordinate.controller;
 
+import coordinate.model.Line;
 import coordinate.model.Points;
 import coordinate.view.InputView;
+import coordinate.view.ResultView;
 
 public class CoordinateCalaulator {
 
@@ -16,5 +18,7 @@ public class CoordinateCalaulator {
 
     private void tryToRun() {
         Points points = new Points(InputView.requireCoordinate());
+        Line line = new Line(points);
+        ResultView.showDistance(line.length());
     }
 }
