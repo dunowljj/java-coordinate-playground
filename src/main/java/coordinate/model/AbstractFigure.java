@@ -13,8 +13,18 @@ public class AbstractFigure implements Figure{
         return 0;
     }
 
+
     @Override
-    public List<Point> getPoints() {
+    public String getInfo() {
+        return "AbstractFigure";
+    }
+
+    public Points getPoints() {
+        return points;
+    }
+
+    @Override
+    public List<Point> getPointList() {
         return points.getPoints();
     }
 }

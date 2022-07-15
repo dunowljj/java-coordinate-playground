@@ -17,10 +17,11 @@ public class ResultView {
     public static final String HORIZON_AXIS = "----";
 
     public static void printResult(Figure figure) {
-
+        printResultGraph(figure.getPoints());
+        printInfo(figure.getInfo());
     }
 
-    public static void printResultGraph(Points points) {
+    private static void printResultGraph(Points points) {
         printYAxisWith(points);
         printXAxisAndNumbers();
     }
@@ -81,8 +82,8 @@ public class ResultView {
         System.out.println();
     }
 
-    public static void showDistance(double distance) {
-        System.out.println("두 점 사이의 거리는 " + (Math.round(distance * DIGIT_LIMIT) / DIGIT_LIMIT));
+    private static void printInfo(String message) {
+        System.out.print(message);
     }
 
 }

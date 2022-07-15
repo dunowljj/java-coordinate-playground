@@ -1,6 +1,7 @@
 package coordinate.controller;
 
-import coordinate.model.Line;
+import coordinate.model.Figure;
+import coordinate.model.FigureFactory;
 import coordinate.model.Points;
 import coordinate.view.InputView;
 import coordinate.view.ResultView;
@@ -18,9 +19,9 @@ public class CoordinateCalaulator {
 
     private void tryToRun() {
         Points points = new Points(InputView.inputCoordinate());
-        ResultView.printResultGraph(points);
 
-        Line line = new Line(points);
-        ResultView.showDistance(line.length());
+        Figure figure = FigureFactory.create(points);
+
+        ResultView.printResult(figure);
     }
 }

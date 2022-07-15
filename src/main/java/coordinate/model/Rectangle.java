@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 public class Rectangle extends AbstractFigure {
 
     public static final String ERROR_NOT_RECTANGLE = "직사각형이 아닙니다.";
+    public static final String WIDTH_SQUARE = "사각형의 넓이는";
 
     public Rectangle(Points points) {
         super(points);
@@ -19,13 +20,15 @@ public class Rectangle extends AbstractFigure {
         return getOnlyXList().size() == 2 &&  getOnlyYList().size() == 2;
     }
     private List<Double> getOnlyXList() {
-        return getOnlySet(Point::getX).stream().collect(Collectors.toList());
+        return getOnlySet(Point::getX)
+                .stream().collect(Collectors.toList());
     }
     private List<Double> getOnlyYList() {
-        return getOnlySet(Point::getY).stream().collect(Collectors.toList());
+        return getOnlySet(Point::getY)
+                .stream().collect(Collectors.toList());
     }
     private Set<Double> getOnlySet(Function<Point,Double> function) {
-        return getPoints().stream()
+        return getPointList().stream()
                 .map(function)
                 .collect(Collectors.toSet());
     }
@@ -39,5 +42,10 @@ public class Rectangle extends AbstractFigure {
     }
     private double getMinusY() {
         return Math.abs(getOnlyYList().get(0) - getOnlyYList().get(1));
+    }
+
+    @Override
+    public String getInfo() {
+        return WIDTH_SQUARE +area();
     }
 }

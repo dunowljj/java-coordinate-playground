@@ -45,6 +45,10 @@ public class Points {
         return new HashSet<>(points).size() != points.size();
     }
 
+    public int size() {
+        return points.size();
+    }
+
     public Point get(int i) {
         return points.get(i);
     }
