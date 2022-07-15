@@ -21,6 +21,12 @@ public class Point {
             throw new IllegalArgumentException(ERROR_INPUT_RANGE);
         }
     }
+
+    public Point(double x, double y) {
+        this.x = x;
+        this.y = y;
+    }
+
     private boolean isInRange() {
         return isXInRange() && isYInRange();
     }

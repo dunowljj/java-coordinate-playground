@@ -3,14 +3,13 @@ package coordinate.model;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Points {
     public static final String INVALID_INPUT = "잘못된 입력입니다.";
     public static final String ERROR_SAME_POINT = "동일한 좌표가 입력되었습니다.";
-    public static final String INPUT_VERIFICATION_REGEX = "\\(\\d{1,2},\\d{1,2}\\)(-\\(\\d{1,2},\\d{1,2}\\)){1,3}";
-    private final List<Point> points = new ArrayList<>();
+    public static final String INPUT_VERIFICATION_REGEX = "\\(\\d{1,2},\\d{1,2}\\)(-\\(\\d{1,2},\\d{1,2}\\)){0,3}";
+    private static final List<Point> points = new ArrayList<>();
 
     public Points(String input) {
         checkValidInput(input);
@@ -23,6 +22,12 @@ public class Points {
 
         checkPointDuplication();
     }
+
+    public boolean hasPoint(int x, int y) {
+        return points.stream()
+                .anyMatch((point -> point.equals(new Point(x, y))));
+    }
+
     private void checkValidInput(String input) {
         boolean valid = Pattern.matches(INPUT_VERIFICATION_REGEX, input);
         

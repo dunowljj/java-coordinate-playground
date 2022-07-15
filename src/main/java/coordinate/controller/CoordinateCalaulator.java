@@ -17,7 +17,9 @@ public class CoordinateCalaulator {
     }
 
     private void tryToRun() {
-        Points points = new Points(InputView.requireCoordinate());
+        Points points = new Points(InputView.inputCoordinate());
+        ResultView.printResultGraph(points);
+
         Line line = new Line(points);
         ResultView.showDistance(line.length());
     }

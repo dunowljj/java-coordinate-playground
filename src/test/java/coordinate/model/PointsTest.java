@@ -43,4 +43,17 @@ public class PointsTest {
                 .hasMessageContaining("잘못된 입력입니다.");
     }
 
+    @Test
+    void 좌표_포함여부_확인() {
+        //given
+        String input = "(1,6)-(2,8)";
+        int x = 1;
+        int y = 6;
+
+        //when
+        Points points = new Points(input);
+
+        //then
+        assertThat(points.hasPoint(x, y)).isTrue();
+    }
 }
