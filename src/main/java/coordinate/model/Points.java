@@ -9,7 +9,7 @@ public class Points {
     public static final String INVALID_INPUT = "잘못된 입력입니다.";
     public static final String ERROR_SAME_POINT = "동일한 좌표가 입력되었습니다.";
     public static final String INPUT_VERIFICATION_REGEX = "\\(\\d{1,2},\\d{1,2}\\)(-\\(\\d{1,2},\\d{1,2}\\)){0,3}";
-    private static final List<Point> points = new ArrayList<>();
+    private final List<Point> points = new ArrayList<>();
 
     public Points(String input) {
         checkValidInput(input);

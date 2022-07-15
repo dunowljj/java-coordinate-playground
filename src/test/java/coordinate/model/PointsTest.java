@@ -1,6 +1,5 @@
 package coordinate.model;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -22,6 +21,16 @@ public class PointsTest {
         assertThat(points.get(1)).isEqualTo(new Point("(2,5)"));
     }
 
+    @ParameterizedTest
+    @ValueSource(strings = {"(2,5)-(1,3","(2,5)(1,3)","(2,5)-(1,3","(2,5)-(3)"})
+    void 입력형식_제한(String input) {
+
+        //when, then
+        assertThatThrownBy(() -> new Points(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("잘못된 입력입니다.");
+    }
+
     @Test
     void 같은_점_입력시_예외() {
         //given
@@ -31,16 +40,6 @@ public class PointsTest {
         assertThatThrownBy(() -> new Points(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("동일한 좌표가 입력되었습니다.");
-    }
-
-    @ParameterizedTest
-    @ValueSource(strings = {"(2,5)-(1,3","(2,5)(1,3)","(2,5)-(1,3","(2,5)-(3)"})
-    void 입력형식_제한(String input) {
-
-        //when, then
-        assertThatThrownBy(() -> new Points(input))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("잘못된 입력입니다.");
     }
 
     @Test
