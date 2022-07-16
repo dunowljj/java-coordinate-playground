@@ -1,6 +1,5 @@
 package coordinate.model;
 
-import coordinate.Triangle;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 

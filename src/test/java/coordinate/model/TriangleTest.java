@@ -1,9 +1,6 @@
 package coordinate.model;
 
-import coordinate.Triangle;
-import coordinate.model.Point;
-import coordinate.model.Points;
-import org.assertj.core.api.Assertions;
+import org.assertj.core.data.Offset;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.*;
@@ -39,4 +36,16 @@ public class TriangleTest {
                 .hasMessageContaining("3개의 좌표가 일직선상에 있습니다.");
     }
 
+    @Test
+    void 삼각형_넓이_구하기() {
+        //given
+        String input = "(1,5)-(4,5)-(4,10)";
+
+        //when
+        Points points = new Points(input);
+        Triangle triangle = new Triangle(points);
+
+        //then
+        assertThat(triangle.area()).isEqualTo(15.0 / 2.0, Offset.offset(0.00099));
+    }
 }

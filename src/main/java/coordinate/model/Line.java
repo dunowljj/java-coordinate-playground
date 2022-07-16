@@ -1,7 +1,7 @@
 package coordinate.model;
 
 public class Line extends AbstractFigure {
-    private final static double DIGIT_LIMIT = 1_000_000;
+    private final static double DIGIT_LIMIT = 1_000_000.0;
     public static final String LINE_LENGTH = "두 점 사이의 길이는";
 
     public Line(Points points) {
