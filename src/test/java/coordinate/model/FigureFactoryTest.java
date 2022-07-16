@@ -1,5 +1,6 @@
 package coordinate.model;
 
+import coordinate.Triangle;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -27,5 +28,17 @@ public class FigureFactoryTest {
 
         //then
         Assertions.assertThat(figure).isInstanceOf(Rectangle.class);
+    }
+
+    @Test
+    void Triangle_생성() {
+        //given
+        String input = "(1,5)-(7,5)-(1,3)";
+
+        //when
+        Figure figure = FigureFactory.create(new Points(input));
+
+        //then
+        Assertions.assertThat(figure).isInstanceOf(Triangle.class);
     }
 }

@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 public class Rectangle extends AbstractFigure {
 
     public static final String ERROR_NOT_RECTANGLE = "직사각형이 아닙니다.";
-    public static final String WIDTH_SQUARE = "사각형의 넓이는";
+    public static final String WIDTH_SQUARE = "사각형의 넓이는 ";
 
     public Rectangle(Points points) {
         super(points);

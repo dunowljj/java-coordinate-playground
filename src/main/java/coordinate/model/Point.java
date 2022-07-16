@@ -67,4 +67,8 @@ public class Point {
     public double getY() {
         return y;
     }
+
+    public double getSlope(Point point) {
+        return Math.abs(differenceX(point) /differenceY(point));
+    }
 }

@@ -45,6 +45,10 @@ public class Points {
         return new HashSet<>(points).size() != points.size();
     }
 
+    public boolean isInStraight() {
+        return points.get(0).getSlope(points.get(1)) == points.get(1).getSlope(points.get(2));
+    }
+
     public int size() {
         return points.size();
     }
